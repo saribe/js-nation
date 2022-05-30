@@ -9,12 +9,22 @@ export const setupApp = ({ on, emit }: Bus, root: RootAggregator) => {
   const app = new FriendsApp(root, repos);
 
   on("@UI/PAGE_READY", async () => {
-    try {
-      const root = await app.createGame();
-      emit("@APP/GAME_DATA_LOADED", { root });
-    } catch (error: any) {
-      emit("@APP/GAME_DATA_LOAD_FAIL", { error });
-    }
+    await app.createGame();
+    emit("@APP/GAME_DATA_LOADED");
+  });
+
+  on("@UI/CHARACTER_CLICK", ({ character }) => {
+    app.playRound(character);
+    emit("@APP/ANSWER_VALIDATED");
+  });
+
+  on("@UI/TIMEOUT", () => {
+    app.timeout();
+    emit("@APP/ANSWER_VALIDATED");
+  });
+
+  on("@APP/ANSWER_VALIDATED", ({ root }) => {
+    if (!root.quote) emit("@APP/GAME_FINISHED");
   });
 
   return app;
