@@ -7,7 +7,7 @@ export const quotesMapper: IMapper<QuoteDTO[], Quote[]> = {
     dto.map(
       (q) =>
         new Quote({
-          characterId: q.character.toLocaleLowerCase(),
+          characterId: q.character.toLocaleLowerCase() as null,
           quote: q.quote,
         })
     ),

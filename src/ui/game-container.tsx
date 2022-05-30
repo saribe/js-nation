@@ -16,15 +16,12 @@ export function GameContainer() {
     characters,
     correctCount,
     isGameOver,
-    logs,
     points,
     quote,
     quotes,
     routeTime,
   } = state;
 
-  useEffect(actions.onLogsChange, [logs.length]); // play a sound after a round
-  useEffect(actions.onGameOver, [isGameOver]); // game is over
   useEffect(actions.onReady, []); // init data
 
   return (
@@ -45,21 +42,19 @@ export function GameContainer() {
         </footer>
       )}
 
-      {isGameOver && (
-        <Dialog
-          open={isGameOver}
-          header="Game Over"
-          footer="Play again"
-          onClick={actions.onStartGameClick}
-        >
-          <p>
-            🎉 You got <b>{correctCount}</b> correct answers!
-          </p>
-          <p>
-            <b>Score:</b> {points}
-          </p>
-        </Dialog>
-      )}
+      <Dialog
+        open={isGameOver}
+        header="Game Over"
+        footer="Play again"
+        onClick={actions.onStartGameClick}
+      >
+        <p>
+          🎉 You got <b>{correctCount}</b> correct answers!
+        </p>
+        <p>
+          <b>Score:</b> {points}
+        </p>
+      </Dialog>
     </article>
   );
 }
