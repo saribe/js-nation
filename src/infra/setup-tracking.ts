@@ -1,12 +1,15 @@
 import { Tracking } from "../services/tracking";
 import type { Bus } from "./types";
 
-export const setupTracking = (bus: Bus) => {
+export const setupTracking = ({ on }: Bus) => {
   const tracking = new Tracking({ magic: "🪄" });
+  const { pageView, track } = tracking;
 
-  bus.on("@UI/PAGE_READY", () => tracking.pageView("home"));
-  bus.on("@UI/START_GAME_CLICK", () => tracking.track("start_game_click"));
-  //TASK: ... others
+  on("@UI/PAGE_READY", () => pageView("home"));
+  on("@APP/GAME_FINISHED", () => track("game_over_screen"));
+  on("@UI/CHARACTER_CLICK", ({ character: { id } }) =>
+    track("character_click", { id })
+  );
 
   return tracking;
 };
