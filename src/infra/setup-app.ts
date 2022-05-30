@@ -27,5 +27,10 @@ export const setupApp = ({ on, emit }: Bus, root: RootAggregator) => {
     if (!root.quote) emit("@APP/GAME_FINISHED");
   });
 
+  on("@UI/START_GAME_CLICK", () => {
+    app.loadNewGame();
+    emit("@APP/NEW_QUOTES_LOADED");
+  });
+
   return app;
 };
