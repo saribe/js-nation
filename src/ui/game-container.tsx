@@ -1,20 +1,17 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useReducer } from "react";
+import { useEffect } from "react";
 import "./game-container.css";
 import { isFeatEnabled } from "../services/feat-panel";
 import { Dialog } from "./components/dialog";
 import { Timer } from "./components/timer";
 import { List } from "./components/list";
 import { useProgress } from "./hooks/use-progress";
-import { useActions } from "./hooks/use-actions";
-import { initialState } from "./adaptor/state";
-import { reducer } from "./adaptor/reducer";
+import { useApp } from "./hooks/use-app";
 
 const isUnicornUser = isFeatEnabled("unicorn");
 
 export function GameContainer() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const actions = useActions(dispatch, state);
+  const { state, actions } = useApp();
   const {
     characters,
     correctCount,

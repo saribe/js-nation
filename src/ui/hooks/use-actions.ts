@@ -1,24 +1,21 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Dispatch, useCallback, useRef } from "react";
+import { useCallback, useRef } from "react";
 import { State } from "../adaptor/state";
 import { Tracking } from "../../services/tracking";
 import { Character, CharacterId } from "../../domain/entities/character";
-import { createLogger } from "../../services/logger";
 import { isVariant } from "../../services/ab-panel";
-import { Action } from "../adaptor/reducer";
 import { quotesRepo } from "../../infra/repos/get-quotes";
-import { charactersRepo } from "../../infra/repos/get-characters";
 import { play, playCharacterNo, playCharacterYes } from "../../utils/play";
 import { pick } from "../../utils/pick";
 import { config } from "../../config";
+import { Bus } from "../../infra/types";
 
 type Log = State["logs"][0];
 
-const logger = createLogger({ page_name: "HOME" });
 const isMKEnabled = isVariant("mortal_combat");
 const getCorrectCount = (logs: Log[]) => logs.filter((l) => l.isCorrect).length;
 
-export const useActions = (dispatch: Dispatch<Action>, state: State) => {
+export const useActions = (emit: Bus["emit"], state: State) => {
   const { current: tracking } = useRef<Tracking>(new Tracking({ magic: "🪄" }));
   const { isGameOver, logs, quote, quotes, characters } = state;
   const valueRef = useRef<CharacterId>();
@@ -30,8 +27,7 @@ export const useActions = (dispatch: Dispatch<Action>, state: State) => {
     quotes.forEach((q, i) => (q.isActive = i === nextIndex));
 
     valueRef.current = value;
-    dispatch({
-      type: "@UI/ANSWER_VALIDATED",
+    emit("@APP/ANSWER_VALIDATED", {
       isCorrect: quote?.characterId === value,
       root: { quotes: quotes, quote: quotes[nextIndex] },
     });
@@ -44,7 +40,7 @@ export const useActions = (dispatch: Dispatch<Action>, state: State) => {
     const quotes = await quotesRepo.get(crop);
 
     tracking.track("start_game_click");
-    dispatch({ type: "@UI/NEW_QUOTES_LOADED", root: { quotes } });
+    emit("@APP/NEW_QUOTES_LOADED", { root: { quotes } });
   }, []);
 
   const onCharacterClick = useCallback(
@@ -70,26 +66,7 @@ export const useActions = (dispatch: Dispatch<Action>, state: State) => {
     }
   };
 
-  const onReady = () => {
-    (async () => {
-      try {
-        const crop = config.get("questions");
-        const [quotes, characters] = await Promise.all([
-          quotesRepo.get(crop),
-          charactersRepo.get(),
-        ]);
-
-        dispatch({
-          type: "@UI/GAME_DATA_LOADED",
-          root: { quotes, characters },
-        });
-      } catch (error) {
-        logger.error(error as Error);
-      }
-    })();
-
-    tracking.pageView("home");
-  };
+  const onReady = () => emit("@UI/PAGE_READY");
 
   const playVoice = () => {
     if (!logs.length) return;

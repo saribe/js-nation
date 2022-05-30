@@ -1,19 +1,13 @@
 import { createLogger } from "../../services/logger";
-import type { RootAggregator } from "../../domain/value-objects/root-aggregator";
 import type { State } from "./state";
 import { shuffle } from "../../utils/shuffle";
 import { config } from "../../config";
 import { isFeatEnabled } from "../../services/feat-panel";
 import { getRouteTime } from "../../utils/getRoundTime";
 import { calculatePoints } from "./calculate-points";
+import { Events, EventKey, EventValues } from "../../infra/types";
 
-type EventType = `@UI/${string}` | `@APP/${string}`;
-export type Action = {
-  error?: string;
-  isCorrect?: boolean;
-  root?: Partial<RootAggregator>;
-  type: EventType;
-};
+type Action = EventValues & { type: EventKey };
 
 const logger = createLogger({ page_name: "HOME" });
 const isVIPUser = isFeatEnabled("vip");
@@ -37,26 +31,27 @@ const reduceNewGame = (root: Action["root"]): Partial<State> => {
 };
 
 export const reducer = (prevState: State, action: Action): State => {
-  const { type, root = {}, isCorrect } = action;
+  const { type, root = {} } = action;
 
   logger.log("👋 Hello! I'm the reducer.", action);
 
   switch (type) {
-    case "@UI/GAME_DATA_LOADED":
+    case "@APP/GAME_DATA_LOADED":
       return {
         ...prevState,
         characters: root.characters,
         ...reduceNewGame(root),
       };
 
-    case "@UI/NEW_QUOTES_LOADED": {
+    case "@APP/NEW_QUOTES_LOADED": {
       return {
         ...prevState,
         ...reduceNewGame(root),
       };
     }
 
-    case "@UI/ANSWER_VALIDATED":
+    case "@APP/ANSWER_VALIDATED":
+      const { isCorrect } = action as Events["@APP/ANSWER_VALIDATED"];
       const timeStamp = Date.now();
       const logs = [
         ...prevState.logs,
