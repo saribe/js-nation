@@ -15,8 +15,9 @@ import { EventKey } from "../../infra/types";
  * @see `../adaptor/reducer`
  */
 const EVENTS: EventKey[] = [
-  "@APP/GAME_DATA_LOADED",
   "@APP/ANSWER_VALIDATED",
+  "@APP/GAME_DATA_LOADED",
+  "@APP/GAME_FINISHED",
   "@APP/NEW_QUOTES_LOADED",
 ];
 

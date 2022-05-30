@@ -12,16 +12,34 @@ export class FriendsApp {
   constructor(public root: RootAggregator, private repos: Repos) {}
 
   createGame = async () => {
-    const crop = config.get("questions");
     const [quotes, characters] = await Promise.all([
-      this.repos.quotes.get(crop),
-      this.repos.characters.get(),
+      this.getQuotes(),
+      this.getCharacters(),
     ]);
 
-    this.root.characters = characters;
-    this.root.quotes = quotes;
-    this.root.quote = quotes[0];
-
-    return this.root;
+    this.root.newGame(quotes, characters);
   };
+
+  loadNewGame = async () => {
+    const quotes = await this.getQuotes();
+
+    this.root.newGame(quotes);
+  };
+
+  playRound = (character: Character) => {
+    this.root.setRoundValue(character);
+  };
+
+  timeout = () => {
+    this.root.setRoundTimeout();
+  };
+
+  private getQuotes() {
+    const crop = config.get("questions");
+    return this.repos.quotes.get(crop);
+  }
+
+  private getCharacters() {
+    return this.repos.characters.get();
+  }
 }
