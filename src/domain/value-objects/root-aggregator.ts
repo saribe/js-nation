@@ -8,10 +8,12 @@ const MIN_POINTS = config.get("minPoints");
 export class RootAggregator {
   characters: Character[];
   quotes: Quote[];
+  round: number;
   private timeStamp: number;
   private activeIndex: number;
 
   constructor(init: Partial<RootAggregator> = {}) {
+    this.round = init.round || 0;
     this.characters = init.characters || [];
     this.quotes = init.quotes || [];
     this.activeIndex = Math.max(this.quotes.findIndex((q) => q.isActive) || 0);
@@ -65,7 +67,7 @@ export class RootAggregator {
     this.quotes = quotes;
     this.updateQuotes(0);
     this.timeStamp = Date.now();
-    this.activeIndex = 0;
+    this.round += 1;
   }
 
   private updateQuotes(activeIndex = this.activeIndex + 1) {
