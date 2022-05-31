@@ -46,7 +46,7 @@ export function GameContainer() {
         open={isGameOver}
         header="Game Over"
         footer="Play again"
-        onClick={actions.onStartGameClick}
+        onClick={actions.onPlayAgainClick}
       >
         <p>
           🎉 You got <b>{correctCount}</b> correct answers!
@@ -54,6 +54,15 @@ export function GameContainer() {
         <p>
           <b>Score:</b> {points}
         </p>
+      </Dialog>
+
+      <Dialog
+        open={!quotes.length}
+        header="Hello there 👋"
+        footer="PLAY"
+        onClick={actions.onStartPlayClick}
+      >
+        <p>Hello there, welcome to JS Nation! Let's play friends quotes. </p>
       </Dialog>
     </article>
   );
