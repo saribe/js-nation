@@ -73,7 +73,7 @@ const gameOverAnnouncement: Announcement = ({ root }) => {
   }, 2000);
 };
 
-export const setupMortalCombatAudio = ({ on }: Bus) => {
+export const setupMortalKombatAudio = ({ on }: Bus) => {
   on("@APP/ANSWER_VALIDATED", actionAnnouncement);
   on("@APP/GAME_FINISHED", gameOverAnnouncement);
   on("@APP/NEW_QUOTES_LOADED", roundAnnouncement);
