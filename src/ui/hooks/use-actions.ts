@@ -12,8 +12,11 @@ export const useActions = (emit: Bus["emit"], _state: State) => {
       onReady: () => {
         emit("@UI/PAGE_READY");
       },
-      onStartGameClick: () => {
-        emit("@UI/START_GAME_CLICK");
+      onPlayAgainClick: () => {
+        emit("@UI/PLAY_AGAIN_CLICK");
+      },
+      onStartPlayClick: () => {
+        emit("@UI/START_PLAY_CLICK");
       },
       onTimeout: () => {
         emit("@UI/TIMEOUT");

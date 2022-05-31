@@ -15,6 +15,7 @@ export type Events = {
   "@APP/NEW_QUOTES_LOAD_FAIL": { root?: Root; error: Error };
   "@UI/CHARACTER_CLICK": { root?: Root; character: Character };
   "@UI/PAGE_READY": { root?: Root };
-  "@UI/START_GAME_CLICK": { root?: Root };
+  "@UI/PLAY_AGAIN_CLICK": { root?: Root };
+  "@UI/START_PLAY_CLICK": { root?: Root };
   "@UI/TIMEOUT": { root?: Root };
 };

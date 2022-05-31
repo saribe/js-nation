@@ -8,7 +8,7 @@ export const setupApp = ({ on, emit }: Bus, root: RootAggregator) => {
   const repos = { quotes: quotesRepo, characters: charactersRepo };
   const app = new FriendsApp(root, repos);
 
-  on("@UI/PAGE_READY", async () => {
+  on("@UI/START_PLAY_CLICK", async () => {
     await app.createGame();
     emit("@APP/GAME_DATA_LOADED");
   });
@@ -27,7 +27,7 @@ export const setupApp = ({ on, emit }: Bus, root: RootAggregator) => {
     if (!root.quote) emit("@APP/GAME_FINISHED");
   });
 
-  on("@UI/START_GAME_CLICK", async () => {
+  on("@UI/PLAY_AGAIN_CLICK", async () => {
     await app.loadNewGame();
     emit("@APP/NEW_QUOTES_LOADED");
   });
