@@ -1,6 +1,6 @@
 import type { Bus } from "./types";
-import { setupMortalKombatAudio } from "./setup-mortal-kombat-audio";
 import { isVariant } from "../services/ab-panel";
+import { setupMortalKombatAudio } from "./setup-mortal-kombat-audio";
 import { setupFriendsAudio } from "./setup-friends-audio";
 
 export const setupAudio = (bus: Bus) => {
