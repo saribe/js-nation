@@ -58,6 +58,14 @@ const actionAnnouncement: Announcement = ({ root: { prevQuote } }) => {
   }
 };
 
+const roundAnnouncement: Announcement = ({ root: { round } }) => {
+  if (round < 7) {
+    play(`/audio/round-${round}.mp3`);
+  } else {
+    play(`/audio/fight.mp3`);
+  }
+};
+
 const gameOverAnnouncement: Announcement = ({ root }) => {
   setTimeout(() => {
     const allCorrect = root.correctCount === root.quotes.length;
@@ -68,4 +76,6 @@ const gameOverAnnouncement: Announcement = ({ root }) => {
 export const setupMortalCombatAudio = ({ on }: Bus) => {
   on("@APP/ANSWER_VALIDATED", actionAnnouncement);
   on("@APP/GAME_FINISHED", gameOverAnnouncement);
+  on("@APP/NEW_QUOTES_LOADED", roundAnnouncement);
+  on("@APP/GAME_DATA_LOADED", roundAnnouncement);
 };
