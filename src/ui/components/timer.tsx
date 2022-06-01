@@ -43,7 +43,7 @@ export const Timer = ({ progress, time, message, onTimeout }: Params) => {
   }, [message]);
 
   return (
-    <header>
+    <header style={{ visibility: message ? "inherit" : "hidden" }}>
       <div className="App-step" title="progress">
         {progress}
       </div>
@@ -56,7 +56,7 @@ export const Timer = ({ progress, time, message, onTimeout }: Params) => {
         <b>W</b>h<b>o</b> sa<b>i</b>d<b>?</b>
       </h3>
 
-      <p className="App-quote">{message}</p>
+      <p className="App-quote">{message || "..."}</p>
     </header>
   );
 };

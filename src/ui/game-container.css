@@ -24,6 +24,12 @@ article {
   padding: 16px;
 }
 
+.unicorn {
+  position: absolute;
+  bottom: 16px;
+  right: 32px;
+}
+
 .App-list {
   display: flex;
   gap: 16px;
@@ -31,6 +37,7 @@ article {
   flex-direction: row;
   justify-content: space-evenly;
   padding: 32px;
+  min-height: 323px;
 }
 
 .App-list > li {
@@ -47,7 +54,7 @@ article {
 
 h3 {
   font-weight: inherit;
-  margin: 64px 16px 16px 16px;
+  margin: 32px;
 }
 
 .logo {

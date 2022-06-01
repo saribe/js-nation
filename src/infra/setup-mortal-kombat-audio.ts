@@ -78,7 +78,7 @@ const playTheme: Announcement = (() => {
   lobby.src = "/audio/mortal-kombat.mp3";
   lobby.loop = true;
   lobby.controls = true;
-  lobby.volume = 0.4;
+  lobby.volume = 0.2;
 
   return ({ root }) => {
     if (root.allowLobbyAudio) lobby.play();

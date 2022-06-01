@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect } from "react";
 import "./game-container.css";
-import { isFeatEnabled } from "../services/feat-panel";
 import { Dialog } from "./components/dialog";
 import { Timer } from "./components/timer";
 import { List } from "./components/list";
@@ -9,8 +8,7 @@ import { useProgress } from "./hooks/use-progress";
 import { useApp } from "./hooks/use-app";
 import { AudioIcon } from "./components/audio-icon";
 import { ComboAnimation } from "./components/combo-animation";
-
-const isUnicornUser = isFeatEnabled("unicorn");
+import { UnicornPower } from "./components/unicorn-power";
 
 export function GameContainer() {
   const { state, actions } = useApp();
@@ -38,12 +36,6 @@ export function GameContainer() {
 
       <List characters={characters} onClick={actions.onCharacterClick} />
 
-      {isUnicornUser && (
-        <footer>
-          <small>{quote?.characterId}</small>
-        </footer>
-      )}
-
       <Dialog
         open={isGameOver}
         header="Game Over"
@@ -68,6 +60,7 @@ export function GameContainer() {
       </Dialog>
 
       <AudioIcon onClick={actions.onAudioClick} muted={state.muted} />
+      <UnicornPower characters={characters} quote={quote} />
       <ComboAnimation quote={state.prevQuote} />
     </article>
   );
