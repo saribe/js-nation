@@ -1,0 +1,123 @@
+article {
+  background-color: #020309;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-step {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 16px;
+}
+
+.App-time {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 16px;
+}
+
+.App-list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 32px;
+}
+
+.App-list > li {
+  display: inline-flex;
+}
+
+.App-quote {
+  font-style: italic;
+  overflow: hidden;
+  margin: 0 32px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+h3 {
+  font-weight: inherit;
+  margin: 64px 16px 16px 16px;
+}
+
+.logo {
+  width: 80vw;
+  max-width: 800px;
+}
+
+header {
+  width: 100%;
+}
+
+figure {
+  display: flex;
+  flex-flow: column;
+  margin: auto;
+}
+
+figure:hover {
+  cursor: pointer;
+  outline: 1px solid white;
+  border-radius: 4px;
+}
+
+figure img {
+  height: 300px;
+  aspect-ratio: 0.86;
+  border-radius: 4px 4px 0 0;
+}
+
+figcaption {
+  background-color: #222;
+  color: #fff;
+  font: italic smaller sans-serif;
+  font-size: small;
+  padding: 4px;
+  text-align: center;
+  border-radius:  0 0 4px 4px;
+}
+
+dialog {
+  padding: 32px;
+}
+
+dialog h3 {
+  margin-top: 0;
+}
+
+dialog p {
+  font-size: large;
+}
+
+dialog p > b {
+  color: green;
+}
+
+dialog button {
+  background: #020309;
+  border-radius: 4px;
+  border: 0;
+  color: white;
+  font-size: large;
+  font-weight: bolder;
+  padding: 16px 32px;
+  text-transform: uppercase;
+}
+
+dialog button:hover {
+  cursor: pointer;
+}
+
+dialog button:active {
+  background: #242e6a;
+}
