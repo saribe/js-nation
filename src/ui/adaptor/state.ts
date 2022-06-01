@@ -4,6 +4,7 @@ import type { Quote } from "../../domain/value-objects/quote";
 
 export type State = {
   characters: Character[];
+  prevQuote?: Quote;
   correctCount: number;
   isGameOver: boolean;
   muted: boolean;
@@ -15,6 +16,7 @@ export type State = {
 
 export const initialState: State = {
   characters: [],
+  prevQuote: null,
   correctCount: 0,
   isGameOver: false,
   muted: true,

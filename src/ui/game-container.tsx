@@ -8,6 +8,7 @@ import { List } from "./components/list";
 import { useProgress } from "./hooks/use-progress";
 import { useApp } from "./hooks/use-app";
 import { AudioIcon } from "./components/audio-icon";
+import { ComboAnimation } from "./components/combo-animation";
 
 const isUnicornUser = isFeatEnabled("unicorn");
 
@@ -67,6 +68,7 @@ export function GameContainer() {
       </Dialog>
 
       <AudioIcon onClick={actions.onAudioClick} muted={state.muted} />
+      <ComboAnimation quote={state.prevQuote} />
     </article>
   );
 }
