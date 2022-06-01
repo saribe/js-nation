@@ -84,7 +84,7 @@ figcaption {
   font-size: small;
   padding: 4px;
   text-align: center;
-  border-radius:  0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
 }
 
 dialog {
@@ -121,27 +121,22 @@ dialog button:hover {
 dialog button:active {
   background: #242e6a;
 }
-
-dialog button:hover {
-  cursor: pointer;
+@keyframes run {
+  0% { right: -350px; }
+  50% { right: -0px; }
+  100% { right: -350px; }
 }
 
-dialog button:active {
-  background: #242e6a;
+.combo {
+  position: absolute;
+  bottom: 0px;
+  height: 300px;
+  right: -350px;
 }
 
-dialog button:hover {
-  cursor: pointer;
-}
-
-dialog button:active {
-  background: #242e6a;
-}
-
-dialog button:hover {
-  cursor: pointer;
-}
-
-dialog button:active {
-  background: #242e6a;
+.combo-animation {
+  position: absolute;
+  animation: jump-start 1 alternate;
+  animation-name: run;
+  animation-duration: 1.7s;
 }
