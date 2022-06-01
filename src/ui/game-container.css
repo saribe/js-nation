@@ -128,6 +128,7 @@ dialog button:hover {
 dialog button:active {
   background: #242e6a;
 }
+
 @keyframes run {
   0% { right: -350px; }
   50% { right: -0px; }
