@@ -41,6 +41,7 @@ export const reducer = (prevState: State, action: Action): State => {
         ...prevState,
         correctCount: root.correctCount,
         points: root.points,
+        prevQuote: root.prevQuote,
         quote: root.quote,
         quotes: root.quotes,
       };
