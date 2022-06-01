@@ -6,8 +6,8 @@ type CharacterParams = {
 };
 
 export const CharacterFigure = ({ character, onClick }: CharacterParams) => (
-  <figure onClick={onClick ? () => onClick(character) : null}>
+  <figure onClick={() => onClick?.(character)} title={character.name}>
     <img src={character.photo} alt={character.name} />
-    <figcaption>{character.name}</figcaption>
+    <figcaption>{character.shortName}</figcaption>
   </figure>
 );

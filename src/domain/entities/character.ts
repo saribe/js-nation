@@ -11,6 +11,7 @@ export type CharacterId =
 
 export class Character extends Entity<CharacterId> {
   name: string;
+  shortName: string;
   photo: `https://${string}`;
   lexical: {
     no: Lexeme[];
@@ -21,6 +22,7 @@ export class Character extends Entity<CharacterId> {
   constructor(init: Partial<Character> = {}) {
     super(init);
 
+    this.shortName = init.shortName;
     this.name = init.name;
     this.photo = init.photo;
     this.lexical = { no: [], yes: [], hello: [], ...init.lexical };
