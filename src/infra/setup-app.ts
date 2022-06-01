@@ -32,5 +32,10 @@ export const setupApp = ({ on, emit }: Bus, root: RootAggregator) => {
     emit("@APP/NEW_QUOTES_LOADED");
   });
 
+  on("@UI/AUDIO_CLICK", () => {
+    app.toggleLobbyAudion();
+    emit("@APP/LOBBY_AUDIO_UPDATED");
+  });
+
   return app;
 };

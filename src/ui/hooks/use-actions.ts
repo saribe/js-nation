@@ -21,6 +21,9 @@ export const useActions = (emit: Bus["emit"], _state: State) => {
       onTimeout: () => {
         emit("@UI/TIMEOUT");
       },
+      onAudioClick: () => {
+        emit("@UI/AUDIO_CLICK");
+      },
     }),
     []
   );

@@ -6,6 +6,7 @@ export type State = {
   characters: Character[];
   correctCount: number;
   isGameOver: boolean;
+  muted: boolean;
   points: number;
   quote?: Quote;
   quotes: Quote[];
@@ -16,6 +17,7 @@ export const initialState: State = {
   characters: [],
   correctCount: 0,
   isGameOver: false,
+  muted: true,
   points: 0,
   quote: null,
   quotes: [],

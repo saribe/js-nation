@@ -6,6 +6,7 @@ const TIMEOUT = config.get("timeout");
 const MIN_POINTS = config.get("minPoints");
 
 export class RootAggregator {
+  allowLobbyAudio: boolean;
   characters: Character[];
   quotes: Quote[];
   round: number;
@@ -13,6 +14,7 @@ export class RootAggregator {
   private activeIndex: number;
 
   constructor(init: Partial<RootAggregator> = {}) {
+    this.allowLobbyAudio = false;
     this.round = init.round || 0;
     this.characters = init.characters || [];
     this.quotes = init.quotes || [];
