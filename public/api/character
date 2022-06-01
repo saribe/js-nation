@@ -1,6 +1,7 @@
 [
   {
     "id": "chandler",
+    "shortName": "Chandler",
     "name": "Chandler Muriel Bing",
     "photo": "/img/avatar/chandler.png",
     "lexical": {
@@ -11,6 +12,7 @@
   },
   {
     "id": "joey",
+    "shortName": "Joey",
     "name": "Joseph Francis Tribbiani Jr.",
     "photo": "/img/avatar/joey.png",
     "lexical": {
@@ -21,6 +23,7 @@
   },
   {
     "id": "monica",
+    "shortName": "Monica",
     "name": "Monica E. Geller",
     "photo": "/img/avatar/monica.png",
     "lexical": {
@@ -31,6 +34,7 @@
   },
   {
     "id": "phoebe",
+    "shortName": "Phoebe",
     "name": "Phoebe Buffay-Hannigan",
     "photo": "/img/avatar/phoebe.png",
     "lexical": {
@@ -41,6 +45,7 @@
   },
   {
     "id": "rachel",
+    "shortName": "Rachel",
     "name": "Rachel Karen Green",
     "photo": "/img/avatar/rachel.png",
     "lexical": {
@@ -51,6 +56,7 @@
   },
   {
     "id": "ross",
+    "shortName": "Ross",
     "name": "Ross Geller",
     "photo": "/img/avatar/ross.png",
     "lexical": {
