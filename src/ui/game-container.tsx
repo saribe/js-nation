@@ -59,7 +59,7 @@ export function GameContainer() {
       <Dialog
         open={!quotes.length}
         header="Hello there 👋"
-        footer="PLAY"
+        footer="Play"
         onClick={actions.onStartPlayClick}
       >
         <p>Hello there, welcome to JS Nation! Let's play friends quotes. </p>
