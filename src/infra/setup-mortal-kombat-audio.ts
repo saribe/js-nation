@@ -73,9 +73,23 @@ const gameOverAnnouncement: Announcement = ({ root }) => {
   }, 2000);
 };
 
+const playTheme: Announcement = (() => {
+  const lobby = new Audio();
+  lobby.src = "/audio/mortal-kombat.mp3";
+  lobby.loop = true;
+  lobby.controls = true;
+  lobby.volume = 0.4;
+
+  return ({ root }) => {
+    if (root.allowLobbyAudio) lobby.play();
+    else lobby.pause();
+  };
+})();
+
 export const setupMortalKombatAudio = ({ on }: Bus) => {
   on("@APP/ANSWER_VALIDATED", actionAnnouncement);
   on("@APP/GAME_FINISHED", gameOverAnnouncement);
   on("@APP/NEW_QUOTES_LOADED", roundAnnouncement);
   on("@APP/GAME_DATA_LOADED", roundAnnouncement);
+  on("@UI/AUDIO_CLICK", playTheme);
 };
