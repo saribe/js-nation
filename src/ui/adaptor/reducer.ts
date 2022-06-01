@@ -45,6 +45,12 @@ export const reducer = (prevState: State, action: Action): State => {
         quotes: root.quotes,
       };
 
+    case "@APP/LOBBY_AUDIO_UPDATED":
+      return {
+        ...prevState,
+        muted: !root.allowLobbyAudio,
+      };
+
     default:
       return prevState;
   }

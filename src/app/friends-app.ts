@@ -34,6 +34,10 @@ export class FriendsApp {
     this.root.setRoundTimeout();
   };
 
+  toggleLobbyAudion = () => {
+    this.root.allowLobbyAudio = !this.root.allowLobbyAudio;
+  };
+
   private getQuotes() {
     const crop = config.get("questions");
     return this.repos.quotes.get(crop);

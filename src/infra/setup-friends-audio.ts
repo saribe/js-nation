@@ -33,6 +33,20 @@ const actionAnnouncement: Announcement = ({ root }) => {
   }
 };
 
+const playTheme: Announcement = (() => {
+  const lobby = new Audio();
+  lobby.src = "/audio/friends-theme-8-bit.mp3";
+  lobby.loop = true;
+  lobby.controls = true;
+  lobby.volume = 0.4;
+
+  return ({ root }) => {
+    if (root.allowLobbyAudio) lobby.play();
+    else lobby.pause();
+  };
+})();
+
 export const setupFriendsAudio = ({ on }: Bus) => {
   on("@APP/ANSWER_VALIDATED", actionAnnouncement);
+  on("@UI/AUDIO_CLICK", playTheme);
 };

@@ -7,6 +7,7 @@ import { Timer } from "./components/timer";
 import { List } from "./components/list";
 import { useProgress } from "./hooks/use-progress";
 import { useApp } from "./hooks/use-app";
+import { AudioIcon } from "./components/audio-icon";
 
 const isUnicornUser = isFeatEnabled("unicorn");
 
@@ -64,6 +65,8 @@ export function GameContainer() {
       >
         <p>Hello there, welcome to JS Nation! Let's play friends quotes. </p>
       </Dialog>
+
+      <AudioIcon onClick={actions.onAudioClick} muted={state.muted} />
     </article>
   );
 }
