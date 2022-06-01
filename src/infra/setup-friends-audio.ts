@@ -11,11 +11,13 @@ const actionAnnouncement: Announcement = ({ root }) => {
 
   switch (true) {
     case prevQuote.isCombo:
-      play("/audio/a-geek.mp3");
+      play(pick(["/audio/janice-omg.mp3", "/audio/a-geek.mp3"]));
       break;
 
     case prevQuote.isAntiCombo:
-      play("/audio/you-are-totally-making-this-up.mp3");
+      play(
+        pick(["/audio/you-are-totally-making-this-up.mp3", "/audio/janice.mp3"])
+      );
       break;
 
     case prevQuote.isCorrect:
