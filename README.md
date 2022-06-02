@@ -3,23 +3,22 @@ _Hello👋 there! Welcome to JS-Nation `Should we have business logic in the UI?
 
 <br/>
 
-## 🪜 **Step 1** Instruction
-### Step 1 - refactor: Move actions to a hook
+## 🪜 **Step 2** Instruction
 
-<br/>
+> The audio not working, do not worry, it will your next task. 📢
 
-**Task description:**
+1. open file [use-actions.ts](./src/ui/hooks/use-actions.ts)
+    1. Remove old code
+    2. Emit the `@UI/START_GAME_CLICK`
+2. Open [setup-app.ts](./src/infra/setup-app.ts)
+    1. Subscribe to `@UI/START_GAME_CLICK`
+        1. execute await [app](./src/app/friends-app.ts#L23).`loadNewGame()`
+        2. emit `@APP/NEW_QUOTES_LOADED`
+2. Open [setup-tracking.ts](./src/infra/setup-tracking.ts)
+    1. Subscribe to `@UI/START_GAME_CLICK`
+      1. execute `track("start_game_click")`;
 
-Move the actions form the `tsx` file to a hook.
-
-
-1. Open [game-container.tsx](./src/ui/game-container.tsx)
-2. Move the code to file [use-actions.ts](./src/ui/hooks/use-actions.ts)
-
-> The app is not working because the file [use-actions.ts](./src/ui/hooks/use-actions.ts) is not done yet. That is your task 💪
-
-> 👀 If you are facing difficulties on this step take a look at the [proposed solution](https://github.com/saribe/js-nation/commit/7579a048a9b6fe174904615810e61951afb0f985).
-
+> 👀 If you are facing difficulties on this step take a look at the [proposed solution](https://github.com/saribe/js-nation/commit/ddd97accc8f55c5bb88e7b2bd659c96ebe9fd61f).
 <br/>
 <br/>
 
@@ -30,7 +29,7 @@ Move the actions form the `tsx` file to a hook.
 
 
 
-This architecture will try to make you cry with it's [Onion Architecture](https://blog.avenuecode.com/domain-driven-design-and-onion-architecture), it is based on the inversion of control principle. It's composed of multiple concentric layers interfacing with each other towards the domain.
+The architecture will try to make you cry with it's [Onion Architecture](https://blog.avenuecode.com/domain-driven-design-and-onion-architecture), it is based on the inversion of control principle. It's composed of multiple concentric layers interfacing with each other towards the domain.
 
 <p align="center" width="100%">
   <img src="./public/onion.svg" width="500"/>
