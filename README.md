@@ -3,34 +3,23 @@ _Hello👋 there! Welcome to JS-Nation `Should we have business logic in the UI?
 
 <br/>
 
-## 🪜 **Step 5** Instruction
+## 🪜 **Step 6** Instructions
 
-### feat: Create lobby dialog <small>+extra</small>
+### Step 6 - feat: Create Dan animation
 
 <br/>
+<p align="center" width="100%"><img src="./public/dan.gif" /><p>
 
 **Feature requirements:**
 
-At the moment, the game starts automatically 😢 giving no time to the user to get ready; Lets create a dialog that is shown before the game start the content:
-
-- header: `Hello there 👋`
-- message: `Hello there, welcome to JS Nation! Let's play friends quotes.`
-- button: `Play`
-
-1. open file [game-container](./src/ui/game-container.tsx) and create a new dialog that is shown if the game is not started yet.
-2. open file [use-actions](./src/ui/hooks/use-actions.ts) and adjust the actions to create a game.
-3. open file [setup-app](./src/infra/setup-app.ts) and adjust the actions to create a game.
-
-<br/>
-
-### Optional extra task
-
-Add the [audio icon](./src/ui/components/audio-icon.tsx) to the page bottom left corner to allow play the [theme audio](./public/audio/friends-theme-8-bit.mp3)
+At the moment, when the user gets 3 correct answers in a row, we play a `combo` sound. Now we want to show `Dan` from the bottom right corner in case we are in the `mortal_kombat` ABTest. In case we are in control we have the same animation but using `Janice` from friends in `Dan's` place.
 
 1. Impress with your developer skills
 
+📝 Tip: The `root.prevQuote` may be very useful...
 
-> 👀 If you are facing difficulties on this step take a look at the [proposed solution](https://github.com/saribe/js-nation/commit/6bec1638908a15183c977bd50f412c289b174630).
+
+> 👀 If you are facing difficulties on this step take a look at the [proposed solution](https://github.com/saribe/js-nation/commit/e3a7407213bc604ebc4023312aaa2c923b50bc0b).
 
 
 
