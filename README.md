@@ -2,6 +2,24 @@
 _Hello👋 there! Welcome to JS-Nation `Should we have business logic in the UI?` workshop. The propose of this document is to guide you our develop the steps of this workshop... <small>Good luck, ping Sam for any help 🔔.</small>_
 
 <br/>
+
+## 🪜 **Step 1** Instruction
+### Step 1 - refactor: Move actions to a hook
+
+<br/>
+
+**Task description:**
+
+Move the actions form the `tsx` file to a hook.
+
+
+1. Open [game-container.tsx](./src/ui/game-container.tsx)
+2. Move the code to file [use-actions.ts](./src/ui/hooks/use-actions.ts)
+
+> The app is not working because the file [use-actions.ts](./src/ui/hooks/use-actions.ts) is not done yet. That is your task 💪
+
+> 👀 If you are facing difficulties on this step take a look at the [proposed solution](https://github.com/saribe/js-nation/commit/7579a048a9b6fe174904615810e61951afb0f985).
+
 <br/>
 <br/>
 
@@ -12,7 +30,7 @@ _Hello👋 there! Welcome to JS-Nation `Should we have business logic in the UI?
 
 
 
-The architecture will try to make you cry with it's [Onion Architecture](https://blog.avenuecode.com/domain-driven-design-and-onion-architecture), it is based on the inversion of control principle. It's composed of multiple concentric layers interfacing with each other towards the domain.
+This architecture will try to make you cry with it's [Onion Architecture](https://blog.avenuecode.com/domain-driven-design-and-onion-architecture), it is based on the inversion of control principle. It's composed of multiple concentric layers interfacing with each other towards the domain.
 
 <p align="center" width="100%">
   <img src="./public/onion.svg" width="500"/>

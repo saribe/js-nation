@@ -18,13 +18,14 @@ import { Character, CharacterId } from "../domain/entities/character";
 import { Quote } from "../domain/value-objects/quote";
 import { pick } from "../utils/pick";
 import { config } from "../config";
+import { useActions } from "./hooks/use-actions";
 
 const isUnicornUser = isFeatEnabled("unicorn");
 const logger = createLogger({ page_name: "HOME" });
-const isMKEnabled = isVariant("mortal_combat");
+const isMKEnabled = isVariant("mortal_kombat");
 
 export function GameContainer() {
-  const { current: tracking } = useRef<Tracking>(new Tracking({ magic: "🪄" }));
+  const { current: tracking } = useRef(new Tracking({ magic: "🪄" }));
   const [state, dispatch] = useReducer(reducer, initialState);
   const valueRef = useRef<CharacterId>();
   const {
@@ -37,6 +38,8 @@ export function GameContainer() {
     quotes,
     routeTime,
   } = state;
+
+  const actions = useActions(dispatch, state);
 
   const nextQuestion = (value: CharacterId = null) => {
     if (isGameOver) return;
@@ -170,9 +173,9 @@ export function GameContainer() {
     dispatch({ type: "@UI/NEW_QUOTES_LOADED", root: { quotes } });
   };
 
-  useEffect(playVoice, [logs.length]); // play a sound after a round
-  useEffect(onGameOver, [isGameOver]); // game is over
-  useEffect(onReady, []); // init data
+  useEffect(actions.onLogsChange, [logs.length]); // play a sound after a round
+  useEffect(actions.onGameOver, [isGameOver]); // game is over
+  useEffect(actions.onReady, []); // init data
 
   return (
     <article>
@@ -181,10 +184,10 @@ export function GameContainer() {
         time={routeTime}
         progress={useProgress(quotes)}
         message={quote?.quote}
-        onTimeout={nextQuestion}
+        onTimeout={actions.onTimeout}
       />
 
-      <List characters={characters} onClick={onCharacterClick} />
+      <List characters={characters} onClick={actions.onCharacterClick} />
 
       {isUnicornUser && (
         <footer>
@@ -197,7 +200,7 @@ export function GameContainer() {
           open={isGameOver}
           header="Game Over"
           footer="Play again"
-          onClick={onStartGameClick}
+          onClick={actions.onStartGameClick}
         >
           <p>
             🎉 You got <b>{correctCount}</b> correct answers!
