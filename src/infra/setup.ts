@@ -5,6 +5,7 @@ import { busDecorator } from "../utils/decorate-bus";
 import type { Events, Bus } from "./types";
 import { setupApp } from "./setup-app";
 import { setupTracking } from "./setup-tracking";
+import { setupAudio } from "./setup-audio";
 
 export const setupInfra = () => {
   const bus = createEventBus<Events>();
@@ -14,6 +15,7 @@ export const setupInfra = () => {
 
   setupApp(sharedBus, root);
   setupTracking(sharedBus);
+  setupAudio(sharedBus);
 
   return {
     bus: sharedBus,
