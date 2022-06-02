@@ -3,27 +3,34 @@ _Hello👋 there! Welcome to JS-Nation `Should we have business logic in the UI?
 
 <br/>
 
-## 🪜 **Step 4** Instruction
+## 🪜 **Step 5** Instruction
 
-### feat: Play round announcements (ABTest)
+### feat: Create lobby dialog <small>+extra</small>
 
 <br/>
 
 **Feature requirements:**
 
-⚠️ This feature is only enabled for the users in the ABTest `mortal-kombat`
-- Start the game, the sound `round-one.mp3` will play
-- Start new game, the sound `round-two.mp3` will play
-- Start new game, the sound `round-three.mp3` will play
-- Start new game, the sound `round-four.mp3` will play
-- Start new game, the sound `round-five.mp3` will play
-- Start new game, the sound `round-six.mp3` will play
-- Start new game, from now onwards, the sound `fight.mp3` will play
+At the moment, the game starts automatically 😢 giving no time to the user to get ready; Lets create a dialog that is shown before the game start the content:
 
-1. open file [setup-mortal-kombat-audio](./src/infra/setup-mortal-kombat-audio.ts)
-2. subscribe to the event(s) necessary to execute the logic described before.
+- header: `Hello there 👋`
+- message: `Hello there, welcome to JS Nation! Let's play friends quotes.`
+- button: `Play`
 
-> 👀 If you are facing difficulties on this step take a look at the [proposed solution](https://github.com/saribe/js-nation/blob/step_5/src/infra/setup-mortal-kombat-audio.ts).
+1. open file [game-container](./src/ui/game-container.tsx) and create a new dialog that is shown if the game is not started yet.
+2. open file [use-actions](./src/ui/hooks/use-actions.ts) and adjust the actions to create a game.
+3. open file [setup-app](./src/infra/setup-app.ts) and adjust the actions to create a game.
+
+<br/>
+
+### Optional extra task
+
+Add the [audio icon](./src/ui/components/audio-icon.tsx) to the page bottom left corner to allow play the [theme audio](./public/audio/friends-theme-8-bit.mp3)
+
+1. Impress with your developer skills
+
+
+> 👀 If you are facing difficulties on this step take a look at the [proposed solution](https://github.com/saribe/js-nation/commit/6bec1638908a15183c977bd50f412c289b174630).
 
 
 
