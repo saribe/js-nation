@@ -1,0 +1,62 @@
+[
+  {
+    "id": "chandler",
+    "name": "Chandler Muriel Bing",
+    "photo": "/img/avatar/chandler.png",
+    "lexical": {
+      "no": ["/audio/no-chandler.mp3"],
+      "yes": ["/audio/yes-chandler.mp3"],
+      "hello": ["/audio/hi-chandler.mp3"]
+    }
+  },
+  {
+    "id": "joey",
+    "name": "Joseph Francis Tribbiani Jr.",
+    "photo": "/img/avatar/joey.png",
+    "lexical": {
+      "no": ["/audio/no-joey.mp3", "/audio/no-no-no.mp3"],
+      "yes": ["/audio/ok-joey.mp3"],
+      "hello": ["/audio/hello-joey.mp3", "/audio/did-you-hang-up-on-me.mp3"]
+    }
+  },
+  {
+    "id": "monica",
+    "name": "Monica E. Geller",
+    "photo": "/img/avatar/monica.png",
+    "lexical": {
+      "no": ["/audio/no-monica.mp3"],
+      "yes": ["/audio/ok-monica.mp3"],
+      "hello": ["/audio/hello-monica.mp3"]
+    }
+  },
+  {
+    "id": "phoebe",
+    "name": "Phoebe Buffay-Hannigan",
+    "photo": "/img/avatar/phoebe.png",
+    "lexical": {
+      "no": ["/audio/no-phoebe.mp3"],
+      "yes": ["/audio/good-very-good.mp3", "/audio/oh-yeah.mp3"],
+      "hello": ["/audio/wake-up.mp3"]
+    }
+  },
+  {
+    "id": "rachel",
+    "name": "Rachel Karen Green",
+    "photo": "/img/avatar/rachel.png",
+    "lexical": {
+      "no": ["/audio/no-rachel.mp3"],
+      "yes": ["/audio/yes-rachel.mp3"],
+      "hello": ["/audio/hello-rachel.mp3", "/audio/hi-rachel.mp3"]
+    }
+  },
+  {
+    "id": "ross",
+    "name": "Ross Geller",
+    "photo": "/img/avatar/ross.png",
+    "lexical": {
+      "no": ["/audio/no-ross.mp3"],
+      "yes": ["/audio/yes-ross.mp3"],
+      "hello": ["/audio/hello-ross.mp3"]
+    }
+  }
+]
