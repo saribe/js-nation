@@ -63,16 +63,17 @@ export class RootAggregator {
   newGame(quotes: Quote[], characters = this.characters) {
     this.characters = characters;
     this.quotes = quotes;
-    this.updateQuotes();
+    this.updateQuotes(0);
     this.timeStamp = Date.now();
     this.activeIndex = 0;
   }
 
-  private updateQuotes() {
-    this.activeIndex += 1;
+  private updateQuotes(activeIndex = this.activeIndex + 1) {
+    this.activeIndex = activeIndex;
+
     this.quotes.forEach((q, i, quotes) => {
       const sample = quotes.slice(Math.max(i - 2), i + 1);
-      q.isActive = i === this.activeIndex;
+      q.isActive = i === activeIndex;
 
       if (sample.length < 3) return;
       q.isAntiCombo = sample.every((a) => a.answer && !a.isCorrect);

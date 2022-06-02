@@ -27,8 +27,8 @@ export const setupApp = ({ on, emit }: Bus, root: RootAggregator) => {
     if (!root.quote) emit("@APP/GAME_FINISHED");
   });
 
-  on("@UI/START_GAME_CLICK", () => {
-    app.loadNewGame();
+  on("@UI/START_GAME_CLICK", async () => {
+    await app.loadNewGame();
     emit("@APP/NEW_QUOTES_LOADED");
   });
 
