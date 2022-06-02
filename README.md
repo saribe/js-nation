@@ -3,27 +3,14 @@ _Hello👋 there! Welcome to JS-Nation `Should we have business logic in the UI?
 
 <br/>
 
-## 🪜 **Step 7** Instructions
+## 🪜 **Step 8** Instructions
 
-### Step 7 - feat: Use short name as figure legend
+### Step 8 - feat: useBeer hook to relax
 
 **Feature requirements:**
+Grab a beer and enjoy 🍺
 
-At the moment, each character has his full name in the figure caption. This name is very verbose and makes players confused. The goal of this feature is to use the shortname instead.
-
-<p align="center" width="100%">
-  <img src="./public/step_7.png" width="500"/>
-</p>
-
-###### Example: `Joseph Francis Tribbiani Jr.` -> `Joey`
-
-<br/>
-<br/>
-
-1. Impress with your developer skills
-
-
-> 👀 If you are facing difficulties on this step take a look at the [proposed solution](https://github.com/saribe/js-nation/commit/8502151fe26e06beac56f9dc005ff6b39dec73db).
+> 👀 If you are facing difficulties on this step take a look at the [proposed solution](https://google.com).
 
 
 
